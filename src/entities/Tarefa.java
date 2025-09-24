@@ -3,22 +3,18 @@ package entities;
 import java.time.LocalDate;
 
 public class Tarefa {
+    public int id;
     public String nome;
-    public String descricao;
+    public Boolean isCompleted;
 
     public LocalDate created_at;
     public LocalDate completed_at;
-    public Boolean isCompleted;
-
 
     @Override
     public String toString() {
-        return "Tarefa{" +
-                "nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", created_at=" + created_at +
-                ", completed_at=" + completed_at +
-                ", isCompleted=" + isCompleted +
-                '}';
+        var isCompletedText = isCompleted ? "[X] " : "[] ";
+
+        return  isCompletedText + id + " -  " + nome;
     }
 }
+

@@ -10,37 +10,30 @@ public class Main {
     public static void main(String[] args) {
 
         var scan = new Scanner(System.in);
-        var tarefas = new ArrayList<Tarefa>();
-        var tarefasService = new TarefasServices();
+        var tarefasArr = new ArrayList<Tarefa>();
+        var tarefasServices = new TarefasServices();
 
         while(true){
             System.out.println("""
-                        1 - Adicionar tarefa
-                        2 - Listar tarefas
-                        3 - Completar uma tarefa
-                        4 - Apagar uma tarefa
-                        5 - Sair
+                           1 - Adicionar tarefa
+                           2 - Listar tarefas
+                           3 - Marcar tarefa Concluida
+                           4 - Desmarcar tarefa Concluida
+                           5 - Remover tarefa
+                           6 - Sair
                     """);
-
             var option = scan.nextInt();
             scan.nextLine();
 
             switch (option){
-                case 1 -> tarefasService.AdicionarTarefa(scan, tarefas);
-                case 2 -> tarefasService.ListarTarefas(tarefas);
-                case 3 -> tarefasService.CompletarTarefa(scan, tarefas);
-                case 4 -> tarefasService.ApagarTarefa(scan, tarefas);
-                case 5 -> System.exit(0);
-                default -> System.out.println("Entrada inválida");
+                case 1 -> tarefasServices.AdicionarTarefa(scan, tarefasArr);
+                case 2 -> tarefasServices.ListarTarefas(tarefasArr);
+                case 3 -> tarefasServices.MarcarTarefa(scan, tarefasArr);
+                case 4 -> tarefasServices.DesmarcarTarefa(scan, tarefasArr);
+                case 5 -> tarefasServices.RemoveTarefa(scan, tarefasArr);
+                case 6 -> System.exit(0);
+                default -> System.out.println("Opção invalida");
             }
-
-
-
         }
-
-
-
-
-
     }
 }
